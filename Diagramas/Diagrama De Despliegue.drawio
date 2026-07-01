@@ -1,0 +1,133 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Página-1" id="78sFi1ee_1JDMHK0fczl">
+    <mxGraphModel grid="1" page="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-11" edge="1" parent="1" source="5YsM7ONGkPN1Y8Wcr84C-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="5YsM7ONGkPN1Y8Wcr84C-13">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="10" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-26" edge="1" parent="1" source="5YsM7ONGkPN1Y8Wcr84C-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="5YsM7ONGkPN1Y8Wcr84C-20">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-2" parent="1" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;" value="" vertex="1">
+          <mxGeometry height="240" width="260" x="219" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="Ambiente De Ejecucion&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="150" x="250" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="VPS - Dongee Emprende" vertex="1">
+          <mxGeometry height="30" width="160" x="254" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-6" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="Compoinente" vertex="1">
+          <mxGeometry height="70" width="170" x="260" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="FrontEnd&lt;div&gt;HTML 5, CSS3, JavaScript&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="170" x="270" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-9" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="Componente" vertex="1">
+          <mxGeometry height="70" width="160" x="265" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-10" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="BackEnd&lt;div&gt;Node.js (API REST)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="130" x="284" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="HTTPS" vertex="1">
+          <mxGeometry height="30" width="60" x="355" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-13" parent="1" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;" value="" vertex="1">
+          <mxGeometry height="200" width="230" x="205" y="-190" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-14" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="Dispositivo" vertex="1">
+          <mxGeometry height="30" width="80" x="230" y="-170" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-16" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="Cliente" vertex="1">
+          <mxGeometry height="50" width="170" x="230" y="-140" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-17" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="Windows/Linux/MacOS" vertex="1">
+          <mxGeometry height="30" width="150" x="250" y="-120" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-18" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="Navegador" vertex="1">
+          <mxGeometry height="60" width="170" x="230" y="-80" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-19" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="Chrome/Edge/FireFox" vertex="1">
+          <mxGeometry height="30" width="140" x="250" y="-60" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-20" parent="1" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;" value="" vertex="1">
+          <mxGeometry height="230" width="280" x="560" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-21" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="Servicio Externo" vertex="1">
+          <mxGeometry height="30" width="110" x="580" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-22" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="Pasarela De Pago" vertex="1">
+          <mxGeometry height="65" width="210" x="590" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-23" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="Mercado Pago Checkout API" vertex="1">
+          <mxGeometry height="30" width="180" x="610" y="422.5" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-24" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="Procesador De Pagos" vertex="1">
+          <mxGeometry height="70" width="210" x="590" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-25" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="REST API (JSON)" vertex="1">
+          <mxGeometry height="30" width="120" x="640" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-27" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="HTTPS" vertex="1">
+          <mxGeometry height="30" width="60" x="425" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-36" edge="1" parent="1" source="5YsM7ONGkPN1Y8Wcr84C-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="5YsM7ONGkPN1Y8Wcr84C-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-29" parent="1" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;" value="" vertex="1">
+          <mxGeometry height="260" width="260" x="-160" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-30" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Base De Datos" vertex="1">
+          <mxGeometry height="30" width="100" x="-130" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-32" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="Servidor Remoto" vertex="1">
+          <mxGeometry height="60" width="220" x="-130" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-33" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="MongoDB" vertex="1">
+          <mxGeometry height="30" width="80" x="-60" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-34" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="Componente" vertex="1">
+          <mxGeometry height="80" width="215" x="-125" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-35" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="Base De Datos&lt;div&gt;Usuarios-Productos-Pedidos-Pagos&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="210" x="-120" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-39" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="TCP/IP&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="60" x="110" y="485" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-47" edge="1" parent="1" source="5YsM7ONGkPN1Y8Wcr84C-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="5YsM7ONGkPN1Y8Wcr84C-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-41" parent="1" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;" value="" vertex="1">
+          <mxGeometry height="230" width="250" x="620" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-42" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Servicio Externo" vertex="1">
+          <mxGeometry height="30" width="110" x="650" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-43" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="Servicio De Notificaciones" vertex="1">
+          <mxGeometry height="69" width="195" x="645" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-44" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="Whatsapp Business API" vertex="1">
+          <mxGeometry height="30" width="150" x="670" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-45" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" value="Comunicacion" vertex="1">
+          <mxGeometry height="64" width="195" x="645" y="236" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-46" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="REST API (HTTPS)" vertex="1">
+          <mxGeometry height="30" width="130" x="690" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="5YsM7ONGkPN1Y8Wcr84C-48" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="HTTPS" vertex="1">
+          <mxGeometry height="30" width="60" x="550" y="180" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
