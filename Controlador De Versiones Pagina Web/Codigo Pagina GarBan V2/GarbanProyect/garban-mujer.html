@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mujer — Garban Deluxe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="garban.css" />
+  <link rel="stylesheet" href="carrito.css" />
+  <link rel="stylesheet" href="wishlist.css" />
+  <style>
+    /* Solo clases nuevas que no existen en garban.css */
+
+    /* Hero de categoría — variante más compacta que .hero */
+    .cat-hero {
+      position: relative;
+      height: 55vh;
+      min-height: 360px;
+      background:
+        linear-gradient(to right, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.2) 100%),
+        url('https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1600&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 0 72px;
+    }
+
+    /* Tabs de filtro */
+    .filter-tabs {
+      border-bottom: 1px solid #eee;
+      background: var(--white);
+      padding: 0 48px;
+      display: flex;
+      overflow-x: auto;
+    }
+
+    .filter-tabs button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      color: var(--gray-mid);
+      padding: 18px 22px;
+      position: relative;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+
+    .filter-tabs button::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+
+    .filter-tabs button:hover { color: var(--gray-text); }
+
+    .filter-tabs button.active {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .filter-tabs button.active::after { transform: scaleX(1); }
+
+    /* Sección catálogo */
+    .catalog {
+      padding: 48px 48px 80px;
+    }
+
+    .catalog-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 36px;
+    }
+
+    .catalog-header-left h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--black);
+    }
+
+    .catalog-header-left p {
+      color: var(--gray-mid);
+      font-size: 0.88rem;
+      margin-top: 4px;
+    }
+
+    .sort-select {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px 36px 10px 14px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      color: var(--gray-text);
+      background: var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23888'/%3E%3C/svg%3E") no-repeat right 12px center;
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
+      outline: none;
+    }
+
+    /* Grid de productos */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .product-card { cursor: pointer; }
+
+    .product-img-wrap {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      background: var(--gray-light);
+    }
+
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s ease;
+    }
+
+    .product-card:hover .product-img-wrap img { transform: scale(1.05); }
+
+    .product-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: var(--gold);
+      color: var(--black);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+    }
+
+    .product-info { padding: 16px 0 0; }
+
+    .product-info .prod-cat-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+      margin-bottom: 6px;
+    }
+
+    .product-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+
+    .product-info .price {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    @media (max-width: 900px) {
+      .cat-hero { padding: 0 32px; }
+      .filter-tabs { padding: 0 24px; }
+      .catalog { padding: 36px 24px 60px; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    }
+
+    @media (max-width: 600px) {
+      .cat-hero { padding: 0 24px; }
+      .products-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT — clase de garban.css -->
+  <div class="announcement">Envío gratis en compras mayores a $200.000 · Devoluciones gratis en 30 días</div>
+
+  <!-- HEADER — clases de garban.css -->
+  <header>
+    <div class="header-top">
+      <a href="garban-hombre.html" class="logo">GARBAN</a>
+      <nav class="main-nav">
+        <a href="garban_home.html">Nueva Colección</a>
+        <a href="garban-mujer.html">Mujer</a>
+        <a href="garban-hombre.html">Hombre</a>
+        <a href="accesorios (1).html" class="active">Accesorios</a>
+        <a href="#">Rebajas</a>
+      </nav>
+      <div class="header-icons">
+        <a href="login.html" aria-label="Cuenta">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </a>
+        <!-- FAVORITOS trigger -->
+        <a href="#" aria-label="Favoritos" id="wishTrigger" onclick="openWishlist(event)">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="wish-badge" id="wishBadge">0</span>
+        </a>
+        <!-- CARRITO trigger -->
+        <a href="#" aria-label="Carrito" id="cartTrigger" onclick="openCart(event)">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+    </div>
+    <div class="search-bar">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" placeholder="Buscar productos..." />
+    </div>
+  </header>
+
+  <!-- CATEGORY HERO — .cat-hero nuevo + clases existentes .hero-tag .hero h1 .hero p reutilizadas -->
+  <section class="cat-hero">
+    <div class="hero-content">
+      <span class="hero-tag">Colección Mujer</span>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.8rem,5vw,4.5rem);color:#fff;font-weight:700;line-height:1.05;">
+        Elegancia<br><span style="color:var(--gold)">Femenina</span>
+      </h1>
+      <p style="color:rgba(255,255,255,0.85);font-size:1rem;line-height:1.65;margin-top:18px;">
+        Descubre nuestra selección exclusiva de prendas para mujer.
+      </p>
+    </div>
+  </section>
+
+  <!-- FILTER TABS — clase nueva -->
+  <div class="filter-tabs">
+    <button class="active" onclick="filterProducts('Todo', this)">Todo</button>
+    <button onclick="filterProducts('Vestidos', this)">Vestidos</button>
+    <button onclick="filterProducts('Blusas', this)">Blusas</button>
+    <button onclick="filterProducts('Pantalones', this)">Pantalones</button>
+    <button onclick="filterProducts('Chaquetas', this)">Chaquetas</button>
+    <button onclick="filterProducts('Faldas', this)">Faldas</button>
+    <button onclick="filterProducts('Abrigos', this)">Abrigos</button>
+    <button onclick="filterProducts('Suéteres', this)">Suéteres</button>
+  </div>
+
+  <!-- CATALOG — clases nuevas -->
+  <section class="catalog">
+    <div class="catalog-header">
+      <div class="catalog-header-left">
+        <h2>Moda para Mujer</h2>
+        <p id="product-count">8 productos disponibles</p>
+      </div>
+      <select class="sort-select" onchange="sortProducts(this.value)">
+        <option value="recomendados">Recomendados</option>
+        <option value="precio-asc">Precio: menor a mayor</option>
+        <option value="precio-desc">Precio: mayor a menor</option>
+        <option value="nuevo">Más nuevos</option>
+      </select>
+    </div>
+
+    <div class="products-grid" id="products-grid">
+
+      <a class="product-card" data-cat="Blusas" href="blusas-detalle.html" style="text-decoration:none;color:inherit;">
+        <div class="product-img-wrap">
+          <span class="product-badge">Nuevo</span>
+          <img src="https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?w=600&q=80" alt="Blusa de Seda" />
+        </div>
+        <div class="product-info">
+          <p class="prod-cat-label">Blusas</p>
+          <h3>Blusa de Seda</h3>
+          <span class="price">$125.000</span>
+        </div>
+      </a>
+
+      <div class="product-card" data-cat="Pantalones">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&q=80" alt="Pantalón de Vestir" />
+        </div>
+        <div class="product-info">
+          <p class="prod-cat-label">Pantalones</p>
+          <h3>Pantalón de Vestir</h3>
+          <span class="price">$95.000</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="Vestidos">
+        <div class="product-img-wrap">
+          <span class="product-badge">Nuevo</span>
+          <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600&q=80" alt="Vestido Midi Floral" />
+        </div>
+        <div class="product-info">
+          <p class="prod-cat-label">Vestidos</p>
+          <h3>Vestido Midi Floral</h3>
+          <span class="price">$165.000</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="Chaquetas">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1520975661595-6453be3f7070?w=600&q=80" alt="Chaqueta de Cuero" />
+        </div>
+        <div class="product-info">
+          <p class="prod-cat-label">Chaquetas</p>
+          <h3>Chaqueta de Cuero</h3>
+          <span class="price">$185.000</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="Faldas">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80" alt="Falda Plisada" />
+        </div>
+        <div class="product-info">
+          <p class="prod-cat-label">Faldas</p>
+          <h3>Falda Plisada</h3>
+          <span class="price">$89.000</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="Suéteres">
+        <div class="product-img-wrap">
+          <span class="product-badge">Nuevo</span>
+          <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80" alt="Suéter Tejido" />
+        </div>
+        <div class="product-info">
+          <p class="prod-cat-label">Suéteres</p>
+          <h3>Suéter Tejido</h3>
+          <span class="price">$110.000</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="Abrigos">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1548624313-0396c75e4b1a?w=600&q=80" alt="Abrigo Largo" />
+        </div>
+        <div class="product-info">
+          <p class="prod-cat-label">Abrigos</p>
+          <h3>Abrigo Largo</h3>
+          <span class="price">$215.000</span>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="Vestidos">
+        <div class="product-img-wrap">
+          <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80" alt="Vestido de Noche" />
+        </div>
+        <div class="product-info">
+          <p class="prod-cat-label">Vestidos</p>
+          <h3>Vestido de Noche</h3>
+          <span class="price">$245.000</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER — clases de garban.css -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">GARBAN</a>
+        <p>Moda elegante y contemporánea para quienes valoran el estilo y la calidad. Descubre la excelencia en cada prenda.</p>
+        <div class="social-links">
+          <a href="#"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Tienda</h4>
+        <ul>
+          <li><a href="#">Nueva Colección</a></li>
+          <li><a href="#">Mujer</a></li>
+          <li><a href="#">Hombre</a></li>
+          <li><a href="#">Accesorios</a></li>
+          <li><a href="#">Rebajas</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="#">Envíos</a></li>
+          <li><a href="#">Devoluciones</a></li>
+          <li><a href="#">Guía de Tallas</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#">Sobre Nosotros</a></li>
+          <li><a href="#">Tiendas</a></li>
+          <li><a href="#">Sostenibilidad</a></li>
+          <li><a href="#">Trabaja con Nosotros</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Garban Deluxe. Todos los derechos reservados.</span>
+      <span>Política de Privacidad · Términos y Condiciones</span>
+    </div>
+  </footer>
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <aside class="cart-panel" id="cartPanel" aria-label="Carrito de compras">
+    <div class="cart-header">
+      <div class="cart-header-left">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <h2>Carrito de Compras</h2>
+      </div>
+      <button class="cart-close" onclick="closeCart()" aria-label="Cerrar carrito">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-body">
+      <div class="cart-empty" id="cartEmpty">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <h3>Tu carrito está vacío</h3>
+        <p>Agrega productos para comenzar tu compra</p>
+        <a href="#" class="btn-cart-gold" onclick="closeCart()">Seguir Comprando</a>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+    </div>
+    <div class="cart-footer" id="cartFooter">
+      <div class="cart-subtotal">
+        <span>Subtotal (<span id="cartCount">0</span> productos)</span>
+        <span class="cart-subtotal-amount" id="cartTotal">$0</span>
+      </div>
+      <p class="cart-note">Envío e impuestos calculados al finalizar la compra</p>
+      <button class="btn-checkout">Finalizar Compra</button>
+      <button class="btn-cart-outline" onclick="closeCart()">Seguir Comprando</button>
+    </div>
+  </aside>
+
+  <!-- ══════════════════════════════════════
+       LISTA DE DESEOS
+  ══════════════════════════════════════ -->
+  <div class="wishlist-overlay" id="wishlistOverlay" onclick="closeWishlist()"></div>
+  <aside class="wishlist-panel" id="wishlistPanel" aria-label="Lista de deseos">
+ 
+    <!-- Header oscuro con brand -->
+    <div class="wishlist-header">
+      <p class="wishlist-brand">Garban Deluxe</p>
+      <div class="wishlist-header-row">
+        <div class="wishlist-title-wrap">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <h2>Lista de Deseos</h2>
+        </div>
+        <button class="wishlist-close" onclick="closeWishlist()" aria-label="Cerrar lista">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+ 
+    <!-- Body -->
+    <div class="wishlist-body">
+ 
+      <!-- Estado vacío -->
+      <div class="wishlist-empty" id="wishlistEmpty">
+        <div class="wishlist-empty-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Tu lista está vacía</h3>
+        <p>Guarda tus piezas favoritas para encontrarlas fácilmente más tarde.</p>
+        <a href="#" class="btn-wishlist-gold" onclick="closeWishlist()">
+          Explorar colección
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+ 
+      <!-- Items -->
+      <div class="wishlist-items" id="wishlistItems"></div>
+ 
+    </div>
+ 
+    <!-- Footer -->
+    <div class="wishlist-footer" id="wishlistFooter">
+      <p class="wishlist-footer-count"><strong id="wishCount">0</strong> piezas guardadas</p>
+      <button class="btn-wish-checkout" onclick="moveAllToCart()">Agregar todo al carrito</button>
+      <button class="btn-wish-outline" onclick="closeWishlist()">Seguir explorando</button>
+    </div>
+ 
+  </aside>
+  <script>
+
+    let wishlist = [];
+ 
+    function openWishlist(e) {
+      if (e) e.preventDefault();
+      closeCart();
+      document.getElementById('wishlistPanel').classList.add('open');
+      document.getElementById('wishlistOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+ 
+    function closeWishlist() {
+      document.getElementById('wishlistPanel').classList.remove('open');
+      document.getElementById('wishlistOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+ 
+    function renderWishlist() {
+      const empty  = document.getElementById('wishlistEmpty');
+      const items  = document.getElementById('wishlistItems');
+      const footer = document.getElementById('wishlistFooter');
+      const badge  = document.getElementById('wishBadge');
+      const count  = document.getElementById('wishCount');
+ 
+      badge.textContent = wishlist.length;
+      badge.classList.toggle('visible', wishlist.length > 0);
+ 
+      if (wishlist.length === 0) {
+        empty.style.display = 'flex';
+        items.classList.remove('has-items');
+        footer.classList.remove('has-items');
+        return;
+      }
+ 
+      empty.style.display = 'none';
+      items.classList.add('has-items');
+      footer.classList.add('has-items');
+      count.textContent = wishlist.length;
+ 
+      items.innerHTML = wishlist.map((item, idx) => `
+        <div class="wishlist-item">
+          <img class="wishlist-item-img" src="${item.img}" alt="${item.name}" onerror="this.style.background='#f0f0f0'" />
+          <div class="wishlist-item-info">
+            <span class="wishlist-item-name">${item.name}</span>
+            <span class="wishlist-item-variant">${item.variant}</span>
+            <span class="wishlist-item-price">
+              $${item.price.toLocaleString('es-CO')}
+              ${item.originalPrice ? `<span class="original">$${item.originalPrice.toLocaleString('es-CO')}</span>` : ''}
+            </span>
+            <button class="btn-add-from-wish" onclick="moveToCart(${idx})">Agregar al carrito</button>
+          </div>
+          <div class="wishlist-item-actions">
+            <button class="wishlist-item-remove" onclick="removeWishItem(${idx})" aria-label="Eliminar de favoritos">
+              <svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+            </button>
+            <button class="wishlist-item-heart" aria-label="Favorito">
+              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+ 
+    function addToWishlist(product) {
+      const exists = wishlist.find(i => i.name === product.name);
+      if (!exists) wishlist.push(product);
+      renderWishlist();
+      openWishlist();
+    }
+ 
+    function removeWishItem(idx) {
+      wishlist.splice(idx, 1);
+      renderWishlist();
+    }
+ 
+    function moveToCart(idx) {
+      const item = wishlist[idx];
+      addToCart({ name: item.name, variant: item.variant, price: item.price, img: item.img });
+      wishlist.splice(idx, 1);
+      renderWishlist();
+    }
+ 
+    function moveAllToCart() {
+      wishlist.forEach(item => {
+        const existing = cart.find(i => i.name === item.name && i.variant === item.variant);
+        if (existing) existing.qty++;
+        else cart.push({ ...item, qty: 1 });
+      });
+      wishlist = [];
+      renderCart();
+      renderWishlist();
+      closeWishlist();
+      openCart();
+    }
+     let cart = [];
+ 
+    function openCart(e) {
+      if (e) e.preventDefault();
+      
+      document.getElementById('cartPanel').classList.add('open');
+      document.getElementById('cartOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+ 
+    function closeCart() {
+      document.getElementById('cartPanel').classList.remove('open');
+      document.getElementById('cartOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    const allProducts = Array.from(document.querySelectorAll('.product-card'));
+
+    function filterProducts(cat, btn) {
+      document.querySelectorAll('.filter-tabs button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      let visible = 0;
+      allProducts.forEach(card => {
+        const show = cat === 'Todo' || card.dataset.cat === cat;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      document.getElementById('product-count').textContent =
+        visible + (visible === 1 ? ' producto disponible' : ' productos disponibles');
+    }
+
+    function sortProducts(val) {
+      const grid = document.getElementById('products-grid');
+      const cards = Array.from(grid.querySelectorAll('.product-card'));
+      cards.sort((a, b) => {
+        const pa = parseInt(a.querySelector('.price').textContent.replace(/\D/g, ''));
+        const pb = parseInt(b.querySelector('.price').textContent.replace(/\D/g, ''));
+        if (val === 'precio-asc') return pa - pb;
+        if (val === 'precio-desc') return pb - pa;
+        return 0;
+      });
+      cards.forEach(c => grid.appendChild(c));
+    }
+  </script>
+
+</body>
+</html>

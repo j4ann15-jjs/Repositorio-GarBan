@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GARBAN – Elegancia Atemporal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="garban.css" />
+  <link rel="stylesheet" href="carrito.css" />
+  <link rel="stylesheet" href="wishlist.css" />
+</head>
+<body>
+ 
+  <!-- ANNOUNCEMENT -->
+  <div class="announcement">Envío gratis en compras mayores a $50,000</div>
+ 
+  <!-- HEADER -->
+  <header>
+    <div class="header-top">
+      <a href="garban_home.html" class="logo">GARBAN</a>
+      <div class="header-icons">
+        <a href="login.html" aria-label="Cuenta">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </a>
+        <!-- FAVORITOS trigger -->
+        <a href="#" aria-label="Favoritos" id="wishTrigger" onclick="openWishlist(event)">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="wish-badge" id="wishBadge">0</span>
+        </a>
+        <!-- CARRITO trigger -->
+        <a href="#" aria-label="Carrito" id="cartTrigger" onclick="openCart(event)">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+    </div>
+    <div class="search-bar">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" placeholder="Buscar productos..." />
+    </div>
+  </header>
+ 
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-tag">Nueva Colección 2026</div>
+      <h1>Elegancia<br><span>Atemporal</span></h1>
+      <p>Descubre nuestra nueva colección de primavera-verano. Diseños exclusivos que definen tu estilo.</p>
+      <div class="hero-buttons">
+        <a href="#" class="btn-gold">Explorar Colección</a>
+        <a href="#" class="btn-outline">Ver Catálogo</a>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- CATEGORIES -->
+  <section class="categories">
+    <p class="section-label">Explora</p>
+    <h2>Categorías</h2>
+    <p>Encuentra lo que buscas</p>
+    <div class="cat-grid">
+      <div class="cat-card">
+        <a href="garban-mujer.html">
+        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80" alt="Mujer" />
+          </a>
+        <div class="cat-info"><h3>Mujer</h3><p>Descubre la elegancia femenina</p></div>
+      </div>
+      <div class="cat-card">
+        <a href="garban-hombre.html">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt3h4shY0P5MBWDbMXAC84G2yhKUtDlc9VFo32yzyQZg&s=10" alt="Hombre" />
+        </a>
+        <div class="cat-info"><h3>Hombre</h3><p>Estilo masculino refinado</p></div>
+      </div>
+      <div class="cat-card">
+        <a href="accesorios (1).html">
+        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=80" alt="Accesorios" />
+        <div class="cat-info"><h3>Accesorios</h3><p>El toque perfecto</p></div>
+      </a>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- CATALOG CTA -->
+  <section class="catalog-cta">
+    <div class="pill">Catálogo Completo</div>
+    <h2>Descubre Nuestra <span>Colección</span></h2>
+    <p>Explora toda nuestra selección de productos premium diseñados para ti</p>
+    <a href="#" class="btn-gold">Ver Todos los Productos</a>
+  </section>
+ 
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <h2>Únete a Garban</h2>
+    <p>Suscríbete a nuestro newsletter y recibe un 10% de descuento en tu primera compra. Mantente al día con las últimas tendencias y ofertas exclusivas.</p>
+    <div class="newsletter-form">
+      <input type="email" placeholder="Tu correo electrónico" />
+      <button class="btn-gold">Suscribirse</button>
+    </div>
+    <p class="newsletter-note">Al suscribirte, aceptas nuestra <a href="#">política de privacidad</a>.</p>
+  </section>
+ 
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">GARBAN</a>
+        <p>Moda elegante y contemporánea para quienes valoran el estilo y la calidad. Descubre la excelencia en cada prenda.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.43 1s-2 .88-3.15 1.12A4.46 4.46 0 0 0 7.25 8a12.62 12.62 0 0 1-9.17-4.65s-4 9 5 13a13 13 0 0 1-8 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" style="fill:#fff"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Tienda</h4>
+        <ul>
+          <li><a href="#">Nueva Colección</a></li>
+          <li><a href="garban-mujer.html">Mujer</a></li>
+          <li><a href="garban-hombre.html">Hombre</a></li>
+          <li><a href="accesorios (1).html">Accesorios</a></li>
+          <li><a href="#">Rebajas</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="#">Mi cuenta</a></li>
+          <li><a href="#">Seguir pedido</a></li>
+          <li><a href="#">Devoluciones</a></li>
+          <li><a href="#">Envíos</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#">Sobre Garban</a></li>
+          <li><a href="#">Sostenibilidad</a></li>
+          <li><a href="#">Prensa</a></li>
+          <li><a href="#">Trabaja con nosotros</a></li>
+          <li><a href="#">Privacidad</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 GARBAN. Todos los derechos reservados.</span>
+      <span>Hecho con elegancia ✦</span>
+    </div>
+  </footer>
+ 
+  <!-- ══════════════════════════════════════
+       CARRITO DE COMPRAS
+  ══════════════════════════════════════ -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <aside class="cart-panel" id="cartPanel" aria-label="Carrito de compras">
+    <div class="cart-header">
+      <div class="cart-header-left">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <h2>Carrito de Compras</h2>
+      </div>
+      <button class="cart-close" onclick="closeCart()" aria-label="Cerrar carrito">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-body">
+      <div class="cart-empty" id="cartEmpty">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <h3>Tu carrito está vacío</h3>
+        <p>Agrega productos para comenzar tu compra</p>
+        <a href="#" class="btn-cart-gold" onclick="closeCart()">Seguir Comprando</a>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+    </div>
+    <div class="cart-footer" id="cartFooter">
+      <div class="cart-subtotal">
+        <span>Subtotal (<span id="cartCount">0</span> productos)</span>
+        <span class="cart-subtotal-amount" id="cartTotal">$0</span>
+      </div>
+      <p class="cart-note">Envío e impuestos calculados al finalizar la compra</p>
+      <button class="btn-checkout">Finalizar Compra</button>
+      <button class="btn-cart-outline" onclick="closeCart()">Seguir Comprando</button>
+    </div>
+  </aside>
+ 
+  <!-- ══════════════════════════════════════
+       LISTA DE DESEOS
+  ══════════════════════════════════════ -->
+  <div class="wishlist-overlay" id="wishlistOverlay" onclick="closeWishlist()"></div>
+  <aside class="wishlist-panel" id="wishlistPanel" aria-label="Lista de deseos">
+ 
+    <!-- Header oscuro con brand -->
+    <div class="wishlist-header">
+      <p class="wishlist-brand">Garban Deluxe</p>
+      <div class="wishlist-header-row">
+        <div class="wishlist-title-wrap">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <h2>Lista de Deseos</h2>
+        </div>
+        <button class="wishlist-close" onclick="closeWishlist()" aria-label="Cerrar lista">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+ 
+    <!-- Body -->
+    <div class="wishlist-body">
+ 
+      <!-- Estado vacío -->
+      <div class="wishlist-empty" id="wishlistEmpty">
+        <div class="wishlist-empty-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Tu lista está vacía</h3>
+        <p>Guarda tus piezas favoritas para encontrarlas fácilmente más tarde.</p>
+        <a href="#" class="btn-wishlist-gold" onclick="closeWishlist()">
+          Explorar colección
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+ 
+      <!-- Items -->
+      <div class="wishlist-items" id="wishlistItems"></div>
+ 
+    </div>
+ 
+    <!-- Footer -->
+    <div class="wishlist-footer" id="wishlistFooter">
+      <p class="wishlist-footer-count"><strong id="wishCount">0</strong> piezas guardadas</p>
+      <button class="btn-wish-checkout" onclick="moveAllToCart()">Agregar todo al carrito</button>
+      <button class="btn-wish-outline" onclick="closeWishlist()">Seguir explorando</button>
+    </div>
+ 
+  </aside>
+ 
+  <script>
+    /* ═══════════════════════════
+       CARRITO
+    ═══════════════════════════ */
+    let cart = [];
+ 
+    function openCart(e) {
+      if (e) e.preventDefault();
+      closeWishlist();
+      document.getElementById('cartPanel').classList.add('open');
+      document.getElementById('cartOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+ 
+    function closeCart() {
+      document.getElementById('cartPanel').classList.remove('open');
+      document.getElementById('cartOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+ 
+    function renderCart() {
+      const empty  = document.getElementById('cartEmpty');
+      const items  = document.getElementById('cartItems');
+      const footer = document.getElementById('cartFooter');
+      const badge  = document.getElementById('cartBadge');
+      const count  = document.getElementById('cartCount');
+      const total  = document.getElementById('cartTotal');
+ 
+      const totalItems = cart.reduce((s, i) => s + i.qty, 0);
+      const totalPrice = cart.reduce((s, i) => s + i.price * i.qty, 0);
+ 
+      badge.textContent = totalItems;
+      badge.classList.toggle('visible', totalItems > 0);
+ 
+      if (cart.length === 0) {
+        empty.style.display = 'flex';
+        items.classList.remove('has-items');
+        footer.classList.remove('has-items');
+        return;
+      }
+ 
+      empty.style.display = 'none';
+      items.classList.add('has-items');
+      footer.classList.add('has-items');
+      count.textContent = totalItems;
+      total.textContent = '$' + totalPrice.toLocaleString('es-CO');
+ 
+      items.innerHTML = cart.map((item, idx) => `
+        <div class="cart-item">
+          <img class="cart-item-img" src="${item.img}" alt="${item.name}" onerror="this.style.background='#f0f0f0'" />
+          <div class="cart-item-info">
+            <span class="cart-item-name">${item.name}</span>
+            <span class="cart-item-variant">${item.variant}</span>
+            <span class="cart-item-price">$${(item.price * item.qty).toLocaleString('es-CO')}</span>
+            <div class="cart-item-qty">
+              <button class="qty-btn" onclick="changeQty(${idx}, -1)">−</button>
+              <span class="qty-num">${item.qty}</span>
+              <button class="qty-btn" onclick="changeQty(${idx}, +1)">+</button>
+            </div>
+          </div>
+          <button class="cart-item-remove" onclick="removeCartItem(${idx})" aria-label="Eliminar">
+            <svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+          </button>
+        </div>
+      `).join('');
+    }
+ 
+    function changeQty(idx, delta) {
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) cart.splice(idx, 1);
+      renderCart();
+    }
+ 
+    function removeCartItem(idx) {
+      cart.splice(idx, 1);
+      renderCart();
+    }
+ 
+    function addToCart(product) {
+      const existing = cart.find(i => i.name === product.name && i.variant === product.variant);
+      if (existing) existing.qty++;
+      else cart.push({ ...product, qty: 1 });
+      renderCart();
+      openCart();
+    }
+ 
+    /* ═══════════════════════════
+       LISTA DE DESEOS
+    ═══════════════════════════ */
+    let wishlist = [];
+ 
+    function openWishlist(e) {
+      if (e) e.preventDefault();
+      closeCart();
+      document.getElementById('wishlistPanel').classList.add('open');
+      document.getElementById('wishlistOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+ 
+    function closeWishlist() {
+      document.getElementById('wishlistPanel').classList.remove('open');
+      document.getElementById('wishlistOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+ 
+    function renderWishlist() {
+      const empty  = document.getElementById('wishlistEmpty');
+      const items  = document.getElementById('wishlistItems');
+      const footer = document.getElementById('wishlistFooter');
+      const badge  = document.getElementById('wishBadge');
+      const count  = document.getElementById('wishCount');
+ 
+      badge.textContent = wishlist.length;
+      badge.classList.toggle('visible', wishlist.length > 0);
+ 
+      if (wishlist.length === 0) {
+        empty.style.display = 'flex';
+        items.classList.remove('has-items');
+        footer.classList.remove('has-items');
+        return;
+      }
+ 
+      empty.style.display = 'none';
+      items.classList.add('has-items');
+      footer.classList.add('has-items');
+      count.textContent = wishlist.length;
+ 
+      items.innerHTML = wishlist.map((item, idx) => `
+        <div class="wishlist-item">
+          <img class="wishlist-item-img" src="${item.img}" alt="${item.name}" onerror="this.style.background='#f0f0f0'" />
+          <div class="wishlist-item-info">
+            <span class="wishlist-item-name">${item.name}</span>
+            <span class="wishlist-item-variant">${item.variant}</span>
+            <span class="wishlist-item-price">
+              $${item.price.toLocaleString('es-CO')}
+              ${item.originalPrice ? `<span class="original">$${item.originalPrice.toLocaleString('es-CO')}</span>` : ''}
+            </span>
+            <button class="btn-add-from-wish" onclick="moveToCart(${idx})">Agregar al carrito</button>
+          </div>
+          <div class="wishlist-item-actions">
+            <button class="wishlist-item-remove" onclick="removeWishItem(${idx})" aria-label="Eliminar de favoritos">
+              <svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+            </button>
+            <button class="wishlist-item-heart" aria-label="Favorito">
+              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+ 
+    function addToWishlist(product) {
+      const exists = wishlist.find(i => i.name === product.name);
+      if (!exists) wishlist.push(product);
+      renderWishlist();
+      openWishlist();
+    }
+ 
+    function removeWishItem(idx) {
+      wishlist.splice(idx, 1);
+      renderWishlist();
+    }
+ 
+    function moveToCart(idx) {
+      const item = wishlist[idx];
+      addToCart({ name: item.name, variant: item.variant, price: item.price, img: item.img });
+      wishlist.splice(idx, 1);
+      renderWishlist();
+    }
+ 
+    function moveAllToCart() {
+      wishlist.forEach(item => {
+        const existing = cart.find(i => i.name === item.name && i.variant === item.variant);
+        if (existing) existing.qty++;
+        else cart.push({ ...item, qty: 1 });
+      });
+      wishlist = [];
+      renderCart();
+      renderWishlist();
+      closeWishlist();
+      openCart();
+    }
+ 
+    // Cerrar con ESC
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { closeCart(); closeWishlist(); }
+    });
+ 
+    // Init
+    renderCart();
+    renderWishlist();
+ 
+  
+    addToWishlist({
+      name: 'Blusa Elegance Premium',
+      variant: 'Talla M · Blanco',
+      price: 89000,
+      originalPrice: 120000,
+      img: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=200&q=80'
+    });
+    addToWishlist({
+      name: 'Bolso Clásico Negro',
+      variant: 'Talla única',
+      price: 245000,
+      img: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=200&q=80'
+    });
+  
+  </script>
+ 
+</body>
+</html>
