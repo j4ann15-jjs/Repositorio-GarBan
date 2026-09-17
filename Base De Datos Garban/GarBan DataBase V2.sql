@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-08-2026 a las 20:12:44
+-- Tiempo de generación: 16-09-2026 a las 20:56:52
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `garban_better`
+-- Base de datos: `garban`
 --
 
 -- --------------------------------------------------------
@@ -61,24 +61,30 @@ CREATE TABLE `cliente` (
   `Nombre` varchar(50) NOT NULL COMMENT 'Nombre(s) del cliente',
   `Apellido` varchar(50) DEFAULT NULL COMMENT 'Apellido(s) del cliente',
   `Correo` varchar(75) NOT NULL COMMENT 'Correo electrónico principal para notificaciones y autenticación.',
-  `Telefono` varchar(25) NOT NULL COMMENT 'Número telefónico o de celular de contacto.'
+  `Telefono` varchar(25) NOT NULL COMMENT 'Número telefónico o de celular de contacto.',
+  `Contrasena` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`Tipo_ID`, `Id_Cliente`, `Nombre`, `Apellido`, `Correo`, `Telefono`) VALUES
-('CC', '1000000001', 'Juan', 'Pérez', 'juan.perez@gmail.com', '3001112233'),
-('CC', '1000000002', 'María', 'Gómez', 'maria.gomez@gmail.com', '3012223344'),
-('CC', '1000000003', 'Carlos', 'Rodríguez', 'carlos.rodriguez@gmail.com', '3023334455'),
-('CC', '1000000004', 'Laura', 'Martínez', 'laura.martinez@gmail.com', '3034445566'),
-('CC', '1000000005', 'Andrés', 'López', 'andres.lopez@gmail.com', '3045556677'),
-('CC', '1000000006', 'Valentina', 'Torres', 'valentina.torres@gmail.com', '3056667788'),
-('CC', '1000000007', 'Sebastián', 'Ramírez', 'sebastian.ramirez@gmail.com', '3067778899'),
-('CC', '1000000008', 'Camila', 'Hernández', 'camila.hernandez@gmail.com', '3078889900'),
-('CC', '1000000009', 'Daniel', 'Castro', 'daniel.castro@gmail.com', '3089990011'),
-('CC', '1000000010', 'Sofía', 'Moreno', 'sofia.moreno@gmail.com', '3090001122');
+INSERT INTO `cliente` (`Tipo_ID`, `Id_Cliente`, `Nombre`, `Apellido`, `Correo`, `Telefono`, `Contrasena`) VALUES
+('CC', '1000000001', 'Juan', 'Pérez', 'juan.perez@gmail.com', '3001112233', ''),
+('CC', '1000000002', 'María', 'Gómez', 'maria.gomez@gmail.com', '3012223344', ''),
+('CC', '1000000003', 'Carlos', 'Rodríguez', 'carlos.rodriguez@gmail.com', '3023334455', ''),
+('CC', '1000000004', 'Laura', 'Martínez', 'laura.martinez@gmail.com', '3034445566', ''),
+('CC', '1000000005', 'Andrés', 'López', 'andres.lopez@gmail.com', '3045556677', ''),
+('CC', '1000000006', 'Valentina', 'Torres', 'valentina.torres@gmail.com', '3056667788', ''),
+('CC', '1000000007', 'Sebastián', 'Ramírez', 'sebastian.ramirez@gmail.com', '3067778899', ''),
+('CC', '1000000008', 'Camila', 'Hernández', 'camila.hernandez@gmail.com', '3078889900', ''),
+('CC', '1000000009', 'Daniel', 'Castro', 'daniel.castro@gmail.com', '3089990011', ''),
+('CC', '1000000010', 'Sofía', 'Moreno', 'sofia.moreno@gmail.com', '3090001122', ''),
+('CC', '1000312331', 'Mariana', 'Garcia', 'hgjhgadgayuwg@gmail.com', '3132454916', ''),
+('CC', '1025535890', 'Sofia ', 'caceres', 'cacereesss@gmail.com', '3115546789', '$2y$10$7NFnt7ieQnxNV4hbyc'),
+('TI', '123141234', 'David', 'Castillo', 'mamita123@gmail.com', '1234567890', ''),
+('TI', '234242356', 'maria', 'Segura', 'Maria@gmail.com', '3115544122', '12345q'),
+('CC', '53523246', 'asd', 'wads', 'hgjhgadgayuwg@gmail.com', '314257655', '');
 
 -- --------------------------------------------------------
 
