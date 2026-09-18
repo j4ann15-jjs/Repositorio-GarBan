@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garban - Blusa de seda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="garban-detalle.css">
+<link rel="stylesheet" href="carrito.css" />
+<link rel="stylesheet" href="wishlist.css" />
+<style>
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .breadcrumb { padding: 14px 24px; }
+
+    .product-detail {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding: 0 24px 56px;
+    }
+
+    .product-tabs { padding: 0 24px 56px; }
+
+    .reviews-layout {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .details-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .product-info h1 { font-size: 1.7rem; }
+    .product-price { font-size: 1.6rem; }
+    .gallery-thumbs { grid-template-columns: repeat(4, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+  <div class="announcement">Envío gratis en compras mayores a $50.000</div>
+
+  <header>
+    <div class="header-top">
+      <a href="garban-hombre.html" class="logo">GARBAN</a>
+      <nav class="main-nav">
+        <a href="garban_home.html">Nueva Colección</a>
+        <a href="garban-mujer.html">Mujer</a>
+        <a href="garban-hombre.html">Hombre</a>
+        <a href="accesorios (1).html" class="active">Accesorios</a>
+        <a href="#">Rebajas</a>
+      </nav>
+      <div class="header-icons">
+        <a href="login.html" aria-label="Cuenta">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </a>
+        <!-- FAVORITOS trigger -->
+        <a href="#" aria-label="Favoritos" id="wishTrigger" onclick="openWishlist(event)">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="wish-badge" id="wishBadge">0</span>
+        </a>
+        <!-- CARRITO trigger -->
+        <a href="#" aria-label="Carrito" id="cartTrigger" onclick="openCart(event)">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+    </div>
+    <div class="search-bar">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" placeholder="Buscar productos..." />
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb" aria-label="Ruta de navegación">
+    <a href="garban-mujer.html">← Volver</a>
+    <span class="sep">/</span>
+    <a href="garban-mujer.html">Blusas</a>
+    <span class="sep">/</span>
+    <span class="current">Blusa de Seda</span>
+  </nav>
+
+  <!-- SVG defs for half star -->
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <linearGradient id="halfGold" x1="0" x2="100%" y1="0" y2="0">
+        <stop offset="50%" stop-color="#C9A84C"/>
+        <stop offset="50%" stop-color="#ddd"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <!-- ═══════ PRODUCT DETAIL ═══════ -->
+  <section class="product-detail">
+
+    <!-- Gallery -->
+    <div class="gallery">
+      <div class="gallery-main">
+        
+        <img id="main-img"
+          src="https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?w=600&q=80"
+          alt="Blusa de seda — vista principal">
+      </div>
+      <div class="gallery-thumbs">
+        <div class="thumb active" onclick="switchImg(this, 'https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?w=600&q=80')">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlGFdMIDEh2P7agwI18dtTcV_bfocqgLcv2LSP_lQrYw&s=10" alt="Vista 1">
+        </div>
+        <div class="thumb" onclick="switchImg(this, 'https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?w=600&q=80')">
+          <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=200&q=70" alt="Vista 2">
+        </div>
+        <div class="thumb" onclick="switchImg(this, 'https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?w=600&q=80')">
+          <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=200&q=70" alt="Vista 3">
+        </div>
+        <div class="thumb" onclick="switchImg(this, 'https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?w=600&q=80')">
+          <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=200&q=70" alt="Vista 4">
+        </div>
+      </div>
+    </div>
+
+    <!-- Info -->
+    <div class="product-info">
+      <div class="cat-label">Blusas</div>
+      <h1>Blusa de Seda</h1>
+
+      <div class="rating">
+        <div class="stars" aria-label="4.7 de 5 estrellas">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg viewBox="0 0 24 24" style="fill:url(#halfGold);stroke:url(#halfGold)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <span class="rating-score">4.7</span>
+        <span class="rating-count">(128 opiniones)</span>
+      </div>
+
+      <div class="product-price">$125.000</div>
+
+      <hr class="divider">
+
+      <!-- Color -->
+      <div class="selector-label">
+        Color <span id="color-name">Negro</span>
+      </div>
+      <div class="color-options">
+        <div class="color-dot active" style="background:#1a1a1a;" title="Negro"       onclick="selectColor(this,'Negro')"></div>
+        <div class="color-dot"        style="background:#f5f5f5; border:1.5px solid #ddd;" title="Blanco" onclick="selectColor(this,'Blanco')"></div>
+        <div class="color-dot"        style="background:#C9A84C;" title="Dorado"      onclick="selectColor(this,'Dorado')"></div>
+        <div class="color-dot"        style="background:#8FA4B2;" title="Azul grisáceo" onclick="selectColor(this,'Azul grisáceo')"></div>
+        <div class="color-dot"        style="background:#8B2635;" title="Vinotinto"     onclick="selectColor(this,'Vinotinto')"></div>
+      </div>
+
+      <!-- Size -->
+      <div class="selector-label">
+        Talla
+        <a href="#" style="color:var(--gold);font-size:0.82rem;font-weight:500;text-decoration:none;">Guía de tallas</a>
+      </div>
+      <div class="size-options">
+        <button class="size-btn" onclick="selectSize(this)">XS</button>
+        <button class="size-btn" onclick="selectSize(this)">S</button>
+        <button class="size-btn" onclick="selectSize(this)">M</button>
+        <button class="size-btn" onclick="selectSize(this)">L</button>
+        <button class="size-btn" onclick="selectSize(this)">XL</button>
+        <button class="size-btn" onclick="selectSize(this)">XXL</button>
+      </div>
+      <div class="size-hint">Selecciona una talla para continuar</div>
+
+      <!-- Quantity -->
+      <div class="selector-label">Cantidad</div>
+      <div class="qty-row">
+        <button class="qty-btn" onclick="changeQty(-1)" aria-label="Reducir cantidad">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="qty-value" id="qty-display">1</div>
+        <button class="qty-btn" onclick="changeQty(1)" aria-label="Aumentar cantidad">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+      </div>
+
+      <!-- CTAs -->
+      <div class="cta-row" style="margin-top:8px;">
+        <button class="btn-add-cart">
+          <svg viewBox="0 0 24 24"><path d="M6 2l1.5 4.5h9L18 2M3.5 6.5h17l-1.5 13h-14z"/><line x1="9" y1="10" x2="9" y2="14"/><line x1="15" y1="10" x2="15" y2="14"/></svg>
+          Agregar al carrito
+        </button>
+        <button class="btn-wishlist" aria-label="Agregar a favoritos">
+          <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        </button>
+      </div>
+      <button class="btn-buy-now">Comprar ahora</button>
+
+      <!-- Trust badges -->
+      <div class="trust-badges">
+        <div class="trust-badge">
+          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <div class="tb-title">Envío gratis</div>
+          <div class="tb-sub">En compras +$50.000</div>
+        </div>
+        <div class="trust-badge">
+          <svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.5"/></svg>
+          <div class="tb-title">30 días</div>
+          <div class="tb-sub">Devolución gratis</div>
+        </div>
+        <div class="trust-badge">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div class="tb-title">Garantía</div>
+          <div class="tb-sub">Calidad certificada</div>
+        </div>
+      </div>
+
+      <div class="sku">SKU: GRB-A-1-NEG</div>
+    </div>
+  </section>
+
+  <!-- ═══════ PRODUCT TABS ═══════ -->
+  <section class="product-tabs">
+    <div class="product-tab-nav">
+      <button class="product-tab-btn active" onclick="switchTab(this,'desc')">Descripción</button>
+      <button class="product-tab-btn" onclick="switchTab(this,'details')">Detalles del producto</button>
+      <button class="product-tab-btn" onclick="switchTab(this,'reviews')">Opiniones (128)</button>
+    </div>
+
+    <!-- Descripción -->
+    <div class="tab-panel active" id="panel-desc">
+      <div class="description-text">
+        <p><strong>Bolso de Cuero</strong> es una pieza diseñada con los más altos estándares de calidad, perfecta para complementar cualquier ocasión. Elaborada con materiales premium seleccionados cuidadosamente para garantizar durabilidad y confort.</p>
+        <p>Cada detalle ha sido pensado para ofrecer una experiencia de moda única. El diseño contemporáneo se combina con técnicas de confección artesanal para crear una prenda que equilibra elegancia y funcionalidad.</p>
+        <p>Parte de la colección exclusiva <a href="#">Garban Deluxe</a>, esta pieza refleja nuestra filosofía de moda atemporal que trasciende tendencias.</p>
+      </div>
+    </div>
+
+    <!-- Detalles del producto -->
+    <div class="tab-panel" id="panel-details">
+      <div class="details-grid">
+        <div>
+          <div class="detail-row">
+            <span class="label">Material</span>
+            <span class="value">95% Poliéster, 5% Elastano</span>
+          </div>
+          <div class="detail-row">
+            <span class="label">Cuidado</span>
+            <span class="value">Lavado a mano o en seco</span>
+          </div>
+          <div class="detail-row">
+            <span class="label">Colección</span>
+            <span class="value">Garban Deluxe</span>
+          </div>
+          <div class="detail-row">
+            <span class="label">Longitud</span>
+            <span class="value">Estándar</span>
+          </div>
+        </div>
+        <div>
+          <div class="detail-row">
+            <span class="label">Origen</span>
+            <span class="value">Colombia</span>
+          </div>
+          <div class="detail-row">
+            <span class="label">Temporada</span>
+            <span class="value">Primavera – Verano 2026</span>
+          </div>
+          <div class="detail-row">
+            <span class="label">Ajuste</span>
+            <span class="value">Regular fit</span>
+          </div>
+          <div class="detail-row">
+            <span class="label">Cierre</span>
+            <span class="value">Cremallera invisible</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Opiniones -->
+    <div class="tab-panel" id="panel-reviews">
+      <div class="reviews-layout">
+        <!-- Summary -->
+        <div class="reviews-summary">
+          <div class="big-score">4.7</div>
+          <div class="stars">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" style="fill:url(#halfGold);stroke:url(#halfGold)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="reviews-count">128 opiniones</div>
+          <div style="width:100%">
+            <div class="bar-row">
+              <span class="bar-label">5</span>
+              <div class="bar-star"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+              <div class="bar-track"><div class="bar-fill" style="width:68%"></div></div>
+              <span class="bar-pct">68%</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">4</span>
+              <div class="bar-star"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+              <div class="bar-track"><div class="bar-fill" style="width:22%"></div></div>
+              <span class="bar-pct">22%</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">3</span>
+              <div class="bar-star"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+              <div class="bar-track"><div class="bar-fill" style="width:7%"></div></div>
+              <span class="bar-pct">7%</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">2</span>
+              <div class="bar-star"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+              <div class="bar-track"><div class="bar-fill" style="width:2%"></div></div>
+              <span class="bar-pct">2%</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">1</span>
+              <div class="bar-star"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+              <div class="bar-track"><div class="bar-fill" style="width:1%"></div></div>
+              <span class="bar-pct">1%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review list -->
+        <div class="review-list">
+          <div class="review-item">
+            <div class="review-header">
+              <div class="reviewer">
+                <div class="avatar m">M</div>
+                <span class="reviewer-name">María G.</span>
+              </div>
+              <span class="review-date">hace 3 días</span>
+            </div>
+            <div class="review-stars">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="review-text">Increíble calidad, superó mis expectativas. La tela es suave y el acabado es impecable.</p>
+          </div>
+
+          <div class="review-item">
+            <div class="review-header">
+              <div class="reviewer">
+                <div class="avatar c">C</div>
+                <span class="reviewer-name">Carlos R.</span>
+              </div>
+              <span class="review-date">hace 1 semana</span>
+            </div>
+            <div class="review-stars">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24" style="fill:#ddd;stroke:#ddd"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="review-text">Muy buena prenda, el diseño es elegante. Llegó antes de lo esperado y el empaque fue perfecto.</p>
+          </div>
+
+          <div class="review-item">
+            <div class="review-header">
+              <div class="reviewer">
+                <div class="avatar a">A</div>
+                <span class="reviewer-name">Ana L.</span>
+              </div>
+              <span class="review-date">hace 2 semanas</span>
+            </div>
+            <div class="review-stars">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="review-text">Lo compré para una ocasión especial y recibí muchos cumplidos. Definitivamente volvería a comprar aquí.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">GARBAN</a>
+        <p>Moda elegante y contemporánea para quienes valoran el estilo y la calidad. Descubre la excelencia en cada prenda.</p>
+        <div class="social-links">
+          <a href="#">f</a><a href="#">ig</a><a href="#">tw</a><a href="#">yt</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Tienda</h4>
+        <ul>
+          <li><a href="#">Nueva Colección</a></li>
+          <li><a href="#">Mujer</a></li>
+          <li><a href="#">Hombre</a></li>
+          <li><a href="accesorios (1).html">Accesorios</a></li>
+          <li><a href="#">Rebajas</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="#">Envíos</a></li>
+          <li><a href="#">Devoluciones</a></li>
+          <li><a href="#">Guía de Tallas</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#">Sobre Nosotros</a></li>
+          <li><a href="#">Tiendas</a></li>
+          <li><a href="#">Sostenibilidad</a></li>
+          <li><a href="#">Trabaja con Nosotros</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Garban. Todos los derechos reservados.</span>
+      <span class="links">
+        <a href="#">Política de Privacidad</a>
+        <a href="#">Términos y Condiciones</a>
+        <a href="#">Cookies</a>
+      </span>
+    </div>
+  </footer>
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <aside class="cart-panel" id="cartPanel" aria-label="Carrito de compras">
+    <div class="cart-header">
+      <div class="cart-header-left">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <h2>Carrito de Compras</h2>
+      </div>
+      <button class="cart-close" onclick="closeCart()" aria-label="Cerrar carrito">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-body">
+      <div class="cart-empty" id="cartEmpty">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <h3>Tu carrito está vacío</h3>
+        <p>Agrega productos para comenzar tu compra</p>
+        <a href="#" class="btn-cart-gold" onclick="closeCart()">Seguir Comprando</a>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+    </div>
+    <div class="cart-footer" id="cartFooter">
+      <div class="cart-subtotal">
+        <span>Subtotal (<span id="cartCount">0</span> productos)</span>
+        <span class="cart-subtotal-amount" id="cartTotal">$0</span>
+      </div>
+      <p class="cart-note">Envío e impuestos calculados al finalizar la compra</p>
+      <button class="btn-checkout">Finalizar Compra</button>
+      <button class="btn-cart-outline" onclick="closeCart()">Seguir Comprando</button>
+    </div>
+  </aside>
+
+  <!-- ══════════════════════════════════════
+       LISTA DE DESEOS
+  ══════════════════════════════════════ -->
+  <div class="wishlist-overlay" id="wishlistOverlay" onclick="closeWishlist()"></div>
+  <aside class="wishlist-panel" id="wishlistPanel" aria-label="Lista de deseos">
+ 
+    <!-- Header oscuro con brand -->
+    <div class="wishlist-header">
+      <p class="wishlist-brand">Garban Deluxe</p>
+      <div class="wishlist-header-row">
+        <div class="wishlist-title-wrap">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <h2>Lista de Deseos</h2>
+        </div>
+        <button class="wishlist-close" onclick="closeWishlist()" aria-label="Cerrar lista">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+ 
+    <!-- Body -->
+    <div class="wishlist-body">
+ 
+      <!-- Estado vacío -->
+      <div class="wishlist-empty" id="wishlistEmpty">
+        <div class="wishlist-empty-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Tu lista está vacía</h3>
+        <p>Guarda tus piezas favoritas para encontrarlas fácilmente más tarde.</p>
+        <a href="#" class="btn-wishlist-gold" onclick="closeWishlist()">
+          Explorar colección
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+ 
+      <!-- Items -->
+      <div class="wishlist-items" id="wishlistItems"></div>
+ 
+    </div>
+ 
+    <!-- Footer -->
+    <div class="wishlist-footer" id="wishlistFooter">
+      <p class="wishlist-footer-count"><strong id="wishCount">0</strong> piezas guardadas</p>
+      <button class="btn-wish-checkout" onclick="moveAllToCart()">Agregar todo al carrito</button>
+      <button class="btn-wish-outline" onclick="closeWishlist()">Seguir explorando</button>
+    </div>
+ 
+  </aside>
+  <script>
+     let wishlist = [];
+ 
+    function openWishlist(e) {
+      if (e) e.preventDefault();
+      closeCart();
+      document.getElementById('wishlistPanel').classList.add('open');
+      document.getElementById('wishlistOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+ 
+    function closeWishlist() {
+      document.getElementById('wishlistPanel').classList.remove('open');
+      document.getElementById('wishlistOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+ 
+    function renderWishlist() {
+      const empty  = document.getElementById('wishlistEmpty');
+      const items  = document.getElementById('wishlistItems');
+      const footer = document.getElementById('wishlistFooter');
+      const badge  = document.getElementById('wishBadge');
+      const count  = document.getElementById('wishCount');
+ 
+      badge.textContent = wishlist.length;
+      badge.classList.toggle('visible', wishlist.length > 0);
+ 
+      if (wishlist.length === 0) {
+        empty.style.display = 'flex';
+        items.classList.remove('has-items');
+        footer.classList.remove('has-items');
+        return;
+      }
+ 
+      empty.style.display = 'none';
+      items.classList.add('has-items');
+      footer.classList.add('has-items');
+      count.textContent = wishlist.length;
+ 
+      items.innerHTML = wishlist.map((item, idx) => `
+        <div class="wishlist-item">
+          <img class="wishlist-item-img" src="${item.img}" alt="${item.name}" onerror="this.style.background='#f0f0f0'" />
+          <div class="wishlist-item-info">
+            <span class="wishlist-item-name">${item.name}</span>
+            <span class="wishlist-item-variant">${item.variant}</span>
+            <span class="wishlist-item-price">
+              $${item.price.toLocaleString('es-CO')}
+              ${item.originalPrice ? `<span class="original">$${item.originalPrice.toLocaleString('es-CO')}</span>` : ''}
+            </span>
+            <button class="btn-add-from-wish" onclick="moveToCart(${idx})">Agregar al carrito</button>
+          </div>
+          <div class="wishlist-item-actions">
+            <button class="wishlist-item-remove" onclick="removeWishItem(${idx})" aria-label="Eliminar de favoritos">
+              <svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+            </button>
+            <button class="wishlist-item-heart" aria-label="Favorito">
+              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+ 
+    function addToWishlist(product) {
+      const exists = wishlist.find(i => i.name === product.name);
+      if (!exists) wishlist.push(product);
+      renderWishlist();
+      openWishlist();
+    }
+ 
+    function removeWishItem(idx) {
+      wishlist.splice(idx, 1);
+      renderWishlist();
+    }
+ 
+    function moveToCart(idx) {
+      const item = wishlist[idx];
+      addToCart({ name: item.name, variant: item.variant, price: item.price, img: item.img });
+      wishlist.splice(idx, 1);
+      renderWishlist();
+    }
+ 
+    function moveAllToCart() {
+      wishlist.forEach(item => {
+        const existing = cart.find(i => i.name === item.name && i.variant === item.variant);
+        if (existing) existing.qty++;
+        else cart.push({ ...item, qty: 1 });
+      });
+      wishlist = [];
+      renderCart();
+      renderWishlist();
+      closeWishlist();
+      openCart();
+    }
+     let cart = [];
+ 
+    function openCart(e) {
+      if (e) e.preventDefault();
+      
+      document.getElementById('cartPanel').classList.add('open');
+      document.getElementById('cartOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+ 
+    function closeCart() {
+      document.getElementById('cartPanel').classList.remove('open');
+      document.getElementById('cartOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    // ── Gallery ──
+    function switchImg(thumb, src) {
+      document.getElementById('main-img').src = src;
+      document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+    }
+
+    // ── Color selector ──
+    function selectColor(dot, name) {
+      document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
+      dot.classList.add('active');
+      document.getElementById('color-name').textContent = name;
+    }
+
+    // ── Size selector ──
+    function selectSize(btn) {
+      document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelector('.size-hint').textContent = 'Talla ' + btn.textContent + ' seleccionada';
+    }
+
+    // ── Quantity ──
+    let qty = 1;
+    function changeQty(delta) {
+      qty = Math.max(1, qty + delta);
+      document.getElementById('qty-display').textContent = qty;
+    }
+
+    // ── Product tabs ──
+    function switchTab(btn, panelId) {
+      document.querySelectorAll('.product-tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('panel-' + panelId).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>

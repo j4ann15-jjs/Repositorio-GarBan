@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garban - Accesorios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="garban.css">
+<link rel="stylesheet" href="carrito.css" />
+<link rel="stylesheet" href="wishlist.css" />
+</head>
+<body>
+
+  <div class="announcement">Envío gratis en compras mayores a $50.000</div>
+
+  <header>
+    <div class="header-top">
+      <a href="garban-hombre.html" class="logo">GARBAN</a>
+      <nav class="main-nav">
+        <a href="garban_home.html">Nueva Colección</a>
+        <a href="garban-mujer.html">Mujer</a>
+        <a href="garban-hombre.html">Hombre</a>
+        <a href="accesorios (1).html" class="active">Accesorios</a>
+        <a href="#">Rebajas</a>
+      </nav>
+      <div class="header-icons">
+        <a href="garban_home.html" aria-label="Cuenta">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </a>
+        <!-- FAVORITOS trigger -->
+        <a href="#" aria-label="Favoritos" id="wishTrigger" onclick="openWishlist(event)">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="wish-badge" id="wishBadge">0</span>
+        </a>
+        <!-- CARRITO trigger -->
+        <a href="#" aria-label="Carrito" id="cartTrigger" onclick="openCart(event)">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+    </div>
+    <div class="search-bar">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" placeholder="Buscar productos..." />
+    </div>
+  </header>
+
+  <section class="hero hero--accesorios">
+    <div class="hero-content">
+      <span class="hero-tag">Accesorios</span>
+      <h1>Detalles que <span>Marcan</span></h1>
+      <p>Complementa tu estilo con nuestros accesorios exclusivos.</p>
+    </div>
+  </section>
+
+  <!-- Tabs de categoría. Cada botón tiene data-category, que se usa
+       para filtrar las tarjetas de producto correspondientes -->
+  <div class="tabs" id="tabs">
+    <button class="tab-btn active" data-category="todo">Todo</button>
+    <button class="tab-btn" data-category="bolsos">Bolsos</button>
+    <button class="tab-btn" data-category="gafas">Gafas</button>
+    <button class="tab-btn" data-category="relojes">Relojes</button>
+    <button class="tab-btn" data-category="joyeria">Joyería</button>
+    <button class="tab-btn" data-category="bufandas">Bufandas</button>
+    <button class="tab-btn" data-category="cinturones">Cinturones</button>
+    <button class="tab-btn" data-category="carteras">Carteras</button>
+    <button class="tab-btn" data-category="sombreros">Sombreros</button>
+  </div>
+
+  <div class="listing-header">
+    <div>
+      <h2>Accesorios</h2>
+      <!-- El contador se actualiza con JS al cambiar de categoría -->
+      <div class="count" id="product-count">8 productos disponibles</div>
+    </div>
+    <select class="sort">
+      <option>Recomendados</option>
+      <option>Precio: menor a mayor</option>
+      <option>Precio: mayor a menor</option>
+    </select>
+  </div>
+
+  <!-- Grid de productos. Cada tarjeta tiene data-category para que el
+       JS sepa a qué filtro pertenece -->
+  <div class="grid" id="product-grid">
+
+    <a class="card" data-category="bolsos" href="bolso-detalle.html" style="text-decoration:none;color:inherit;">
+      <div class="img-wrap">
+        <span class="badge">NUEVO</span>
+        <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?w=500&q=80" alt="Bolso de Cuero">
+      </div>
+      <div class="cat-label">Bolsos</div>
+      <div class="name">Bolso de Cuero</div>
+      <div class="price">$165.000</div>
+    </a>
+    <a class="card" data-category="gafas" href="gafas-detalle.html" style="text-decoration:none;color:inherit;">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500&q=80" alt="Gafas de Sol Premium">
+      </div>
+      <div class="cat-label">Gafas</div>
+      <div class="name">Gafas de Sol Premium</div>
+      <div class="price">$95.000</div>
+    </a>
+
+    <div class="card" data-category="relojes">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500&q=80" alt="Reloj Clásico">
+      </div>
+      <div class="cat-label">Relojes</div>
+      <div class="name">Reloj Clásico</div>
+      <div class="price">$245.000</div>
+    </div>
+
+    <div class="card" data-category="bufandas">
+      <div class="img-wrap">
+        <span class="badge">NUEVO</span>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7CCJLp5JkZBNNttDUlDziOVMjCm5BiwDsXg8OSJLKbQ&s=10" alt="Bufanda de Seda">
+      </div>
+      <div class="cat-label">Bufandas</div>
+      <div class="name">Bufanda de Seda</div>
+      <div class="price">$58.000</div>
+    </div>
+
+    <div class="card" data-category="cinturones">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=500&q=80" alt="Cinturón de Cuero">
+      </div>
+      <div class="cat-label">Cinturones</div>
+      <div class="name">Cinturón de Cuero</div>
+      <div class="price">$68.000</div>
+    </div>
+
+    <div class="card" data-category="carteras">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=500&q=80" alt="Cartera Elegante">
+      </div>
+      <div class="cat-label">Carteras</div>
+      <div class="name">Cartera Elegante</div>
+      <div class="price">$125.000</div>
+    </div>
+
+    <div class="card" data-category="sombreros">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?w=500&q=80" alt="Sombrero Fedora">
+      </div>
+      <div class="cat-label">Sombreros</div>
+      <div class="name">Sombrero Fedora</div>
+      <div class="price">$78.000</div>
+    </div>
+
+    <div class="card" data-category="joyeria">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=500&q=80" alt="Collar de Perlas">
+      </div>
+      <div class="cat-label">Joyería</div>
+      <div class="name">Collar elegante</div>
+      <div class="price">$185.000</div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="garban_home.html" class="logo">GARBAN</a>
+        <p>Moda elegante y contemporánea para quienes valoran el estilo y la calidad. Descubre la excelencia en cada prenda.</p>
+        <div class="social-links">
+          <a href="#">f</a><a href="#">ig</a><a href="#">tw</a><a href="#">yt</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Tienda</h4>
+        <ul>
+          <li><a href="garban_home.html">Nueva Colección</a></li>
+          <li><a href="garban-mujer.html">Mujer</a></li>
+          <li><a href="garban-hombre.html">Hombre</a></li>
+          <li><a href="accesorios (1).html">Accesorios</a></li>
+          <li><a href="#">Rebajas</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="#">Envíos</a></li>
+          <li><a href="#">Devoluciones</a></li>
+          <li><a href="#">Guía de Tallas</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#">Sobre Nosotros</a></li>
+          <li><a href="#">Tiendas</a></li>
+          <li><a href="#">Sostenibilidad</a></li>
+          <li><a href="#">Trabaja con Nosotros</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Garban. Todos los derechos reservados.</span>
+      <span class="links">
+        <a href="#">Política de Privacidad</a>
+        <a href="#">Términos y Condiciones</a>
+        <a href="#">Cookies</a>
+      </span>
+    </div>
+  </footer>
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <aside class="cart-panel" id="cartPanel" aria-label="Carrito de compras">
+    <div class="cart-header">
+      <div class="cart-header-left">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <h2>Carrito de Compras</h2>
+      </div>
+      <button class="cart-close" onclick="closeCart()" aria-label="Cerrar carrito">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-body">
+      <div class="cart-empty" id="cartEmpty">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <h3>Tu carrito está vacío</h3>
+        <p>Agrega productos para comenzar tu compra</p>
+        <a href="#" class="btn-cart-gold" onclick="closeCart()">Seguir Comprando</a>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+    </div>
+    <div class="cart-footer" id="cartFooter">
+      <div class="cart-subtotal">
+        <span>Subtotal (<span id="cartCount">0</span> productos)</span>
+        <span class="cart-subtotal-amount" id="cartTotal">$0</span>
+      </div>
+      <p class="cart-note">Envío e impuestos calculados al finalizar la compra</p>
+      <button class="btn-checkout">Finalizar Compra</button>
+      <button class="btn-cart-outline" onclick="closeCart()">Seguir Comprando</button>
+    </div>
+  </aside>
+
+  <!-- ══════════════════════════════════════
+       LISTA DE DESEOS
+  ══════════════════════════════════════ -->
+  <div class="wishlist-overlay" id="wishlistOverlay" onclick="closeWishlist()"></div>
+  <aside class="wishlist-panel" id="wishlistPanel" aria-label="Lista de deseos">
+ 
+    <!-- Header oscuro con brand -->
+    <div class="wishlist-header">
+      <p class="wishlist-brand">Garban Deluxe</p>
+      <div class="wishlist-header-row">
+        <div class="wishlist-title-wrap">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <h2>Lista de Deseos</h2>
+        </div>
+        <button class="wishlist-close" onclick="closeWishlist()" aria-label="Cerrar lista">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+ 
+    <!-- Body -->
+    <div class="wishlist-body">
+ 
+      <!-- Estado vacío -->
+      <div class="wishlist-empty" id="wishlistEmpty">
+        <div class="wishlist-empty-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Tu lista está vacía</h3>
+        <p>Guarda tus piezas favoritas para encontrarlas fácilmente más tarde.</p>
+        <a href="#" class="btn-wishlist-gold" onclick="closeWishlist()">
+          Explorar colección
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+ 
+      <!-- Items -->
+      <div class="wishlist-items" id="wishlistItems"></div>
+ 
+    </div>
+ 
+    <!-- Footer -->
+    <div class="wishlist-footer" id="wishlistFooter">
+      <p class="wishlist-footer-count"><strong id="wishCount">0</strong> piezas guardadas</p>
+      <button class="btn-wish-checkout" onclick="moveAllToCart()">Agregar todo al carrito</button>
+      <button class="btn-wish-outline" onclick="closeWishlist()">Seguir explorando</button>
+    </div>
+ 
+  </aside>
+  <script>
+    let wishlist = [];
+ 
+    function openWishlist(e) {
+      if (e) e.preventDefault();
+      closeCart();
+      document.getElementById('wishlistPanel').classList.add('open');
+      document.getElementById('wishlistOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+ 
+    function closeWishlist() {
+      document.getElementById('wishlistPanel').classList.remove('open');
+      document.getElementById('wishlistOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+ 
+    function renderWishlist() {
+      const empty  = document.getElementById('wishlistEmpty');
+      const items  = document.getElementById('wishlistItems');
+      const footer = document.getElementById('wishlistFooter');
+      const badge  = document.getElementById('wishBadge');
+      const count  = document.getElementById('wishCount');
+ 
+      badge.textContent = wishlist.length;
+      badge.classList.toggle('visible', wishlist.length > 0);
+ 
+      if (wishlist.length === 0) {
+        empty.style.display = 'flex';
+        items.classList.remove('has-items');
+        footer.classList.remove('has-items');
+        return;
+      }
+ 
+      empty.style.display = 'none';
+      items.classList.add('has-items');
+      footer.classList.add('has-items');
+      count.textContent = wishlist.length;
+ 
+      items.innerHTML = wishlist.map((item, idx) => `
+        <div class="wishlist-item">
+          <img class="wishlist-item-img" src="${item.img}" alt="${item.name}" onerror="this.style.background='#f0f0f0'" />
+          <div class="wishlist-item-info">
+            <span class="wishlist-item-name">${item.name}</span>
+            <span class="wishlist-item-variant">${item.variant}</span>
+            <span class="wishlist-item-price">
+              $${item.price.toLocaleString('es-CO')}
+              ${item.originalPrice ? `<span class="original">$${item.originalPrice.toLocaleString('es-CO')}</span>` : ''}
+            </span>
+            <button class="btn-add-from-wish" onclick="moveToCart(${idx})">Agregar al carrito</button>
+          </div>
+          <div class="wishlist-item-actions">
+            <button class="wishlist-item-remove" onclick="removeWishItem(${idx})" aria-label="Eliminar de favoritos">
+              <svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+            </button>
+            <button class="wishlist-item-heart" aria-label="Favorito">
+              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+ 
+    function addToWishlist(product) {
+      const exists = wishlist.find(i => i.name === product.name);
+      if (!exists) wishlist.push(product);
+      renderWishlist();
+      openWishlist();
+    }
+ 
+    function removeWishItem(idx) {
+      wishlist.splice(idx, 1);
+      renderWishlist();
+    }
+ 
+    function moveToCart(idx) {
+      const item = wishlist[idx];
+      addToCart({ name: item.name, variant: item.variant, price: item.price, img: item.img });
+      wishlist.splice(idx, 1);
+      renderWishlist();
+    }
+ 
+    function moveAllToCart() {
+      wishlist.forEach(item => {
+        const existing = cart.find(i => i.name === item.name && i.variant === item.variant);
+        if (existing) existing.qty++;
+        else cart.push({ ...item, qty: 1 });
+      });
+      wishlist = [];
+      renderCart();
+      renderWishlist();
+      closeWishlist();
+      openCart();
+    }
+     let cart = [];
+ 
+    function openCart(e) {
+      if (e) e.preventDefault();
+      
+      document.getElementById('cartPanel').classList.add('open');
+      document.getElementById('cartOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+ 
+    function closeCart() {
+      document.getElementById('cartPanel').classList.remove('open');
+      document.getElementById('cartOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    // -----------------------------------------------------------------
+    // Lógica de filtrado de categorías (vanilla JS, sin dependencias)
+    // -----------------------------------------------------------------
+
+    // Referencias a los elementos que vamos a manipular
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const productCards = document.querySelectorAll('#product-grid .card');
+    const countLabel = document.getElementById('product-count');
+
+    // Función que aplica el filtro según la categoría elegida
+    function filterProducts(category) {
+      let visibleCount = 0;
+
+      productCards.forEach(card => {
+        // "todo" muestra todas las tarjetas; cualquier otro valor
+        // solo muestra las que coincidan con su data-category
+        const matches = category === 'todo' || card.dataset.category === category;
+        card.style.display = matches ? '' : 'none';
+        if (matches) visibleCount++;
+      });
+
+      // Actualiza el texto de "X productos disponibles"
+      countLabel.textContent = visibleCount + ' producto' + (visibleCount === 1 ? '' : 's') + ' disponible' + (visibleCount === 1 ? '' : 's');
+    }
+
+    // Asigna el evento click a cada botón de categoría
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Quita la clase "active" de todos los botones y se la pone solo al que se hizo click
+        tabButtons.forEach(b => b.classList.remove('active'));
+        button.classList.add('active');
+
+        // Aplica el filtro correspondiente
+        filterProducts(button.dataset.category);
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,453 @@
+/* ── RESET & VARIABLES ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --gold: #C9A84C;
+  --gold-dark: #A8882E;
+  --gold-light: #e8d5a3;
+  --black: #0A0A0A;
+  --white: #FFFFFF;
+  --gray-light: #F5F5F5;
+  --gray-border: #ddd;
+  --gray-mid: #888;
+  --gray-text: #333;
+  --gray-label: #4a4a4a;
+  --error: #c0392b;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--gray-text);
+  background: var(--white);
+  min-height: 100vh;
+}
+
+/* ── BACK LINK ── */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--gray-text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 32px 0 0 40px;
+  transition: color 0.2s;
+}
+
+.back-link:hover { color: var(--gold); }
+
+.back-link svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+/* ── MAIN LAYOUT ── */
+.register-wrapper {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 40px 80px;
+}
+
+/* ── HEADER ── */
+.register-header {
+  margin-bottom: 40px;
+}
+
+.brand-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.register-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 8px;
+  line-height: 1.1;
+}
+
+.register-header p {
+  color: var(--gray-mid);
+  font-size: 0.95rem;
+}
+
+/* ── FORM ── */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Row with two fields */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Single field group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-group label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--gray-label);
+}
+
+.form-group label .req {
+  color: var(--gray-label);
+  margin-left: 2px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  border: 1.5px solid var(--gray-border);
+  border-radius: 6px;
+  padding: 13px 16px;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  color: var(--gray-text);
+  background: var(--white);
+  outline: none;
+  transition: border-color 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form-group input::placeholder,
+.form-group select:invalid {
+  color: var(--gray-mid);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--gold);
+}
+
+/* ── PHONE FIELD ── */
+.phone-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 10px;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper select {
+  padding-right: 32px;
+  cursor: pointer;
+}
+
+.select-wrapper::after {
+  content: '';
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid var(--gray-mid);
+  pointer-events: none;
+}
+
+/* ── BIRTHDATE ROW ── */
+.date-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+/* ── GENDER BUTTONS ── */
+.gender-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Hide the native radio, keep it accessible */
+.gender-radio {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.gender-btn {
+  flex: 1;
+  min-width: 110px;
+  padding: 12px 16px;
+  border: 1.5px solid var(--gray-border);
+  border-radius: 6px;
+  background: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--gray-label);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  text-align: center;
+  display: block;
+}
+
+.gender-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.gender-radio:checked + .gender-btn {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: #fdf8ee;
+}
+
+.gender-radio:focus-visible + .gender-btn {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ── PASSWORD FIELD ── */
+.input-icon-wrap {
+  position: relative;
+}
+
+.input-icon-wrap input {
+  padding-right: 48px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-password svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--gray-mid);
+  fill: none;
+  stroke-width: 1.6;
+  transition: stroke 0.2s;
+}
+
+.toggle-password:hover svg { stroke: var(--gold); }
+
+/* ── CHECKBOXES ── */
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  color: var(--gray-label);
+  line-height: 1.5;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  border: 1.5px solid var(--gray-border);
+  border-radius: 3px;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  margin-top: 2px;
+  transition: border-color 0.2s, background 0.2s;
+  position: relative;
+}
+
+.checkbox-label input[type="checkbox"]:checked {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.checkbox-label input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 6px;
+  height: 10px;
+  border: 2px solid var(--white);
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+.checkbox-label a {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.checkbox-label a:hover { text-decoration: underline; }
+
+/* ── SUBMIT BUTTON ── */
+.btn-submit {
+  width: 100%;
+  background: var(--gold);
+  color: var(--black);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.25s;
+  text-decoration: none;
+  color: #0A0A0A;
+}
+
+.btn-submit:hover { background: var(--gold-dark); color: var(--white); 
+  text-decoration:none ;
+  color: #0A0A0A;
+}
+
+/* ── DIVIDER ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--gray-mid);
+  font-size: 0.82rem;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gray-border);
+}
+
+/* ── SOCIAL BUTTONS ── */
+.social-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.btn-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 16px;
+  border: 1.5px solid var(--gray-border);
+  border-radius: 6px;
+  background: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--gray-text);
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.btn-social:hover {
+  border-color: var(--gray-mid);
+  background: var(--gray-light);
+}
+
+.btn-social img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Facebook icon */
+.btn-social .fb-icon {
+  width: 20px;
+  height: 20px;
+  background: #1877F2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.btn-social .fb-icon svg {
+  width: 12px;
+  height: 12px;
+  fill: white;
+}
+
+/* Google icon */
+.btn-social .g-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* ── FOOTER LOGIN LINK ── */
+.login-link {
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--gray-mid);
+}
+
+.login-link a {
+  color: var(--gold);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-link a:hover { text-decoration: underline; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .back-link { padding: 20px 0 0 20px; }
+
+  .register-wrapper { padding: 24px 20px 60px; }
+
+  .register-header h1 { font-size: 2rem; }
+
+  .form-row { grid-template-columns: 1fr; }
+
+  .date-row { grid-template-columns: 1fr 1fr 1fr; }
+
+  .social-buttons { grid-template-columns: 1fr; }
+
+  .gender-group { flex-direction: column; }
+
+  .gender-btn { min-width: unset; }
+}
